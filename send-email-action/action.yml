@@ -20,24 +20,23 @@ inputs:
     description: 'SMTP password'
     required: true
 
-jobs:
-  send_mail:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
 
-      - name: Send email
-        run: python send_mail.py
-        env:
-          TO_EMAIL: ${{ inputs.to_email }}
-          FROM_EMAIL: ${{ inputs.from_email }}
-          SMTP_SERVER: ${{ inputs.smtp_server }}
-          SMTP_PORT: ${{ inputs.smtp_port }}
-          SMTP_USERNAME: ${{ inputs.smtp_username }}
-          SMTP_PASSWORD: ${{ inputs.smtp_password }}
+    - name: Send email
+      run: python send_mail.py
+      env:
+        TO_EMAIL: ${{ inputs.to_email }}
+        FROM_EMAIL: ${{ inputs.from_email }}
+        SMTP_SERVER: ${{ inputs.smtp_server }}
+        SMTP_PORT: ${{ inputs.smtp_port }}
+        SMTP_USERNAME: ${{ inputs.smtp_username }}
+        SMTP_PASSWORD: ${{ inputs.smtp_password }}

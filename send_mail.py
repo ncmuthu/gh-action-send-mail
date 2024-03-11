@@ -24,6 +24,10 @@ message["Subject"] = subject
 # Add body to email
 message.attach(MIMEText(body, "plain"))
 
+# Debug
+print(sender_email)
+print(receiver_email)
+
 # Send email
 with smtplib.SMTP(smtp_server, smtp_port) as server:
     server.starttls()

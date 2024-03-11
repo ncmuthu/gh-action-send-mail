@@ -4,10 +4,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # Get environment variables
-#sender_email = os.getenv('FROM_EMAIL')
-#receiver_email = os.getenv('TO_EMAIL')
-sender_email = "ncmuthuaws@gmail.com"
-receiver_email = "ncmuthuaws@gmail.com"
+sender_email = os.getenv('FROM_EMAIL')
+receiver_email = os.getenv('TO_EMAIL')
 
 smtp_server = os.getenv('SMTP_SERVER')
 smtp_port = int(os.getenv('SMTP_PORT'))
@@ -26,11 +24,6 @@ message["Subject"] = subject
 
 # Add body to email
 message.attach(MIMEText(body, "plain"))
-
-# Debug
-print(sender_email)
-print(receiver_email)
-print(smtp_port)
 
 # Send email
 with smtplib.SMTP(smtp_server, smtp_port) as server:

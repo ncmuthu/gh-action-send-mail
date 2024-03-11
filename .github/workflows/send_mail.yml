@@ -19,8 +19,8 @@ jobs:
 
       - name: Send email
         env:
-          TO_EMAIL: ${{ secrets.EMAIL_TO }}
-          FROM_EMAIL: ${{ secrets.EMAIL_FROM }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}

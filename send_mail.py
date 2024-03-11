@@ -4,8 +4,11 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # Get environment variables
-sender_email = os.getenv('FROM_EMAIL')
-receiver_email = os.getenv('TO_EMAIL')
+#sender_email = os.getenv('FROM_EMAIL')
+#receiver_email = os.getenv('TO_EMAIL')
+sender_email = "ncmuthuaws@gmail.com"
+receiver_email = "ncmuthuaws@gmail.com"
+
 smtp_server = os.getenv('SMTP_SERVER')
 smtp_port = int(os.getenv('SMTP_PORT'))
 smtp_username = os.getenv('SMTP_USERNAME')

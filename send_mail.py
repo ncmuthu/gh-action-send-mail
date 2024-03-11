@@ -1,12 +1,19 @@
+import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+# Get environment variables
+sender_email = os.getenv('FROM_EMAIL')
+receiver_email = os.getenv('TO_EMAIL')
+smtp_server = os.getenv('SMTP_SERVER')
+smtp_port = int(os.getenv('SMTP_PORT'))
+smtp_username = os.getenv('SMTP_USERNAME')
+smtp_password = os.getenv('SMTP_PASSWORD')
+
 # Email content
 subject = 'Hello from GitHub Actions'
 body = 'This is a test email sent from GitHub Actions.'
-sender_email = input('Enter sender email: ')
-receiver_email = input('Enter receiver email: ')
 
 # Create message
 message = MIMEMultipart()
@@ -18,9 +25,9 @@ message["Subject"] = subject
 message.attach(MIMEText(body, "plain"))
 
 # Send email
-with smtplib.SMTP(input('Enter SMTP server: '), int(input('Enter SMTP port: '))) as server:
+with smtplib.SMTP(smtp_server, smtp_port) as server:
     server.starttls()
-    server.login(input('Enter SMTP username: '), input('Enter SMTP password: '))
+    server.login(smtp_username, smtp_password)
     server.sendmail(sender_email, receiver_email, message.as_string())
 
 print('Email sent successfully!')

@@ -33,7 +33,7 @@ runs:
 
     - name: Send email
       shell: bash
-      run: python send_mail.py
+      run: python ${{ github.action_path }}/send_mail.py
       env:
         TO_EMAIL: ${{ inputs.to_email }}
         FROM_EMAIL: ${{ inputs.from_email }}

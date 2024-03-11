@@ -24,11 +24,9 @@ runs:
   using: 'composite'
   steps:
     - name: Checkout code
-      shell: bash
       uses: actions/checkout@v2
 
     - name: Install Python
-      shell: bash
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'

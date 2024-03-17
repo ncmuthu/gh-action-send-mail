@@ -22,11 +22,11 @@ inputs:
 
 runs:
   using: 'composite'
-  container:
-    image: python:3.10.13-slim
   steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      container:
+        image: python:3.10.13-slim
 
     - name: Debug
       shell: bash

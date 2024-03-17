@@ -25,10 +25,16 @@ runs:
   steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        repository: ncmuthu/gh-action-send-mail
+        ref: dev
 
     - name: Debug
       shell: bash
       run: |
+        pwd
+        ls -la
+        echo ${{ github.action_path }}
         ls -la /home/runner/work/*
         ls -la /home/runner/work/_actions/*/*/*
 

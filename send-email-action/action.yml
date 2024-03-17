@@ -29,7 +29,7 @@ runs:
     - name: Debug
       shell: bash
       run: |
-        ls -la /home/runner/work/_actions/*/*
+        ls -la /home/runner/work/_actions/*/*/*
 
     - name: Install Python
       uses: actions/setup-python@v2

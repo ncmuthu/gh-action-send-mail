@@ -29,6 +29,7 @@ runs:
     - name: Debug
       shell: bash
       run: |
+        ls -la /home/runner/work/*
         ls -la /home/runner/work/_actions/*/*/*
 
     - name: Install Python

@@ -32,6 +32,7 @@ runs:
         ls -al
         pwd
         ls -la *
+        ls -la /home/runner/work/*
 
     - name: Install Python
       uses: actions/setup-python@v2

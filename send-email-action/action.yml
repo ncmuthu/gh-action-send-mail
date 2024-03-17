@@ -26,6 +26,13 @@ runs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Debug
+      shell: bash
+      run: |
+        ls -al
+        pwd
+        ls -la *
+
     - name: Install Python
       uses: actions/setup-python@v2
       with:
